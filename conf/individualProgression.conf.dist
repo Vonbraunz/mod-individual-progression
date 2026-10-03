@@ -326,6 +326,17 @@ IndividualProgression.RequiredZulGurubProgression = 3
 #
 IndividualProgression.RequiredZulAmanProgression = 12
 
+# IndividualProgression.RequireZulAmanForSunwell
+#
+#        Description: Require defeating Zul'Jin (achievement 691) before entering the
+#                     Isle of Quel'Danas and the Sunwell Plateau raid. Bots and
+#                     excluded accounts are exempt so a bot party can follow its master.
+#
+#        Default:     0 - off (Sunwell has no attunement on retail)
+#                     1 - Zul'Jin must be defeated first
+#
+IndividualProgression.RequireZulAmanForSunwell = 0
+
 # IndividualProgression.DisableDefaultProgression
 #
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries

@@ -658,6 +658,12 @@ public:
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
                 return false;
             }
+            if (sIndividualProgression->requireZulAmanForSunwell && zoneId == AREA_ISLE_OF_QUEL_DANAS &&
+                !player->IsGameMaster() && sIndividualProgression->isNormalAccount(player) && !player->HasAchieved(ZUL_JIN_KILL))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You must defeat Zul'Jin in Zul'Aman before entering the Isle of Quel'Danas.");
+                return false;
+            }
         }
         if (mapid == MAP_ZUL_AMAN)
         {
@@ -669,6 +675,12 @@ public:
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZA_PROGRESSION);
                 return false;
             }
+        }
+        if (mapid == SUNWELL_PLATEAU && sIndividualProgression->requireZulAmanForSunwell &&
+            !player->IsGameMaster() && sIndividualProgression->isNormalAccount(player) && !player->HasAchieved(ZUL_JIN_KILL))
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("You must defeat Zul'Jin in Zul'Aman before entering the Sunwell Plateau.");
+            return false;
         }
         if (mapid == MAP_NORTHREND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
